@@ -104,10 +104,9 @@ Twist is when user passes anything other than number, or string value you should
 
 function sum(a, b) {
   // Your code
-  console.log(typeof a, typeof b);
   if (
-    (typeof a && typeof b == "number") ||
-    (typeof a && typeof b == "string")
+    (typeof a == "number" && typeof b == "number") ||
+    (typeof a == "string" && typeof b == "string")
   ) {
     return a + b;
   } else {
