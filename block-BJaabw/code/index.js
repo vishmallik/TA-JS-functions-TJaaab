@@ -9,13 +9,15 @@ minToSec(50) ➞ 3000
 minToSec(13) ➞ 780
 minToSec(2) ➞ 120
 */
+var minToSec = (minutes) => minutes * 60;
 
 // - Write a Function Decleration for above problem
-function minToSec() {
+function minToSec(minutes) {
   // Your code
+  return minutes * 60;
 }
 // - Execute the function with required parameter
-
+minToSec(60);
 /* 2. 
 Create a function named isInRange which validates whether a number n is exclusively within the bounds of lower and upper.
 Return true and false based on that.
@@ -26,10 +28,12 @@ isInRange(1, 10, 19); // false
 */
 
 // - Write a Function Decleration for above problem
-function isInRange() {
+function isInRange(lower, upper, number) {
   // Your code
+  return number > lower && number < upper ? true : false;
 }
 // - Execute the function with required parameter
+isInRange(4, 10, 9);
 
 /* 2. calculateBMI
 
@@ -49,8 +53,18 @@ Obese: BMI is 30 or more
 
 */
 
-function calculateBMI() {
+function calculateBMI(weight, height) {
   // Your code
+  let BMI = weight / (height * height);
+  if (BMI < 18.5) {
+    return `underweight`;
+  } else if (BMI >= 18.5 && BMI <= 24) {
+    return `Normal weight`;
+  } else if (BMI >= 25 && BMI <= 29.9) {
+    return `Overweight`;
+  } else {
+    return `Obese`;
+  }
 }
 
 /* 3. appropiateDrinks
@@ -64,8 +78,17 @@ Create a function that take the age are return the appropiate drink based on the
 
 */
 
-function appropiateDrinks() {
+function appropiateDrinks(age) {
   // Your code
+  if (age < 14) {
+    return `Drink Fruit Juice`;
+  } else if (age < 18) {
+    return "drink soda";
+  } else if (age < 21) {
+    return "drink fruit-flavoured beer";
+  } else if (age >= 21) {
+    return "drink throat-piercing vodka";
+  }
 }
 
 /* 4. Add two numers or string
@@ -79,13 +102,22 @@ Twist is when user passes anything other than number, or string value you should
 
 */
 
-function sum() {
+function sum(a, b) {
   // Your code
+  console.log(typeof a, typeof b);
+  if (
+    (typeof a && typeof b == "number") ||
+    (typeof a && typeof b == "string")
+  ) {
+    return a + b;
+  } else {
+    return `Enter valid value`;
+  }
 }
 
 // Function Test
 sum(2, 4); // 4
-sum('Arya', 'Stark'); // "Arya Stark"
-sum('Arya', 2); // Enter valid Values
+sum("Arya", "Stark"); // "Arya Stark"
+sum("Arya", 2); // Enter valid Values
 sum(null, 2); // Enter valid Values
 sum(undefined, 2); // Enter valid Values
